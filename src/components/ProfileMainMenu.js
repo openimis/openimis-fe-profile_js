@@ -13,7 +13,7 @@ class ProfileMainMenu extends Component {
           {
             text: "Change password",
             icon: <Fingerprint />,
-            route: "/profile/password"
+            route: "/profile/changePassword"
           }
         ]}
       />
