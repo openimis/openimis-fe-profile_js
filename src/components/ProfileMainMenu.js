@@ -1,17 +1,18 @@
 import React, { Component } from "react";
+import { injectIntl } from 'react-intl';
 import { AccountCircle, Fingerprint } from "@material-ui/icons";
-import { MainMenuContribution } from "@openimis/fe-core";
+import { formatMessage, MainMenuContribution } from "@openimis/fe-core";
 
 class ProfileMainMenu extends Component {
   render() {
     return (
       <MainMenuContribution
         {...this.props}
-        header="Profile"
+        header={formatMessage(this.props.intl, "profile", "mainMenu")}
         icon={<AccountCircle />}
         entries={[
           {
-            text: "Change password",
+            text: formatMessage(this.props.intl, "profile", "menu.changePassword"),
             icon: <Fingerprint />,
             route: "/profile/changePassword"
           }
@@ -20,4 +21,4 @@ class ProfileMainMenu extends Component {
     );
   }
 }
-export { ProfileMainMenu };
+export default injectIntl(ProfileMainMenu);
