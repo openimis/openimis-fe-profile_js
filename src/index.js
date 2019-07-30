@@ -2,7 +2,7 @@ import ProfileMainMenu from "./components/ProfileMainMenu";
 import { ChangePasswordPage } from "./components/ChangePasswordPage";
 import messages_en from "./translations/en.json";
 
-const ProfileModule = {
+const DEFAULT_CONFIG = {
   "translations": [{ key: "en", messages: messages_en }],
   "core.Router": [
     { path: "profile/changePassword", component: ChangePasswordPage },
@@ -10,4 +10,6 @@ const ProfileModule = {
   "core.MainMenu": [ProfileMainMenu]
 }
 
-export { ProfileModule };
+export const ProfileModule = (cfg) => {
+  return { ...DEFAULT_CONFIG, ...(cfg && cfg['fe-profile'] || {}) };
+}
