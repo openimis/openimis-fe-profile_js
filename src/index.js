@@ -11,5 +11,5 @@ const DEFAULT_CONFIG = {
 }
 
 export const ProfileModule = (cfg) => {
-  return { ...DEFAULT_CONFIG, ...(cfg && cfg['fe-profile'] || {}) };
+  return { ...DEFAULT_CONFIG, ...cfg };
 }
