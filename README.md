@@ -13,7 +13,7 @@ It is dedicated to be deployed as a module of [openimis-fe_js](https://github.co
 * `core.Router`, registering `profile/changePassword` route in openIMIS client-side router
 
 ## Available Contribution Points
-None
+* `profile.MainMenu`: ability to add entries within the profile main menu entry
 
 ## Published Components
 None
