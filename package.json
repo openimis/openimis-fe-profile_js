@@ -1,6 +1,6 @@
 {
   "name": "@openimis/fe-profile",
-  "version": "1.1.0",
+  "version": "1.2.0-rc1",
   "license": "AGPL-3.0-only",
   "description": "openIMIS Frontend Profile reference module",
   "repository": "openimis/openimis-fe-profile_js",
