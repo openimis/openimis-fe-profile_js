@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { injectIntl } from 'react-intl';
 import { AccountCircle, Fingerprint } from "@material-ui/icons";
-import { formatMessage, MainMenuContribution } from "@openimis/fe-core";
+import { formatMessage, MainMenuContribution, withModulesManager } from "@openimis/fe-core";
 
 const PROFILE_MAIN_MENU_CONTRIBUTION_KEY = "profile.MainMenu";
 
@@ -26,4 +26,4 @@ class ProfileMainMenu extends Component {
     );
   }
 }
-export default injectIntl(ProfileMainMenu);
+export default withModulesManager(injectIntl(ProfileMainMenu));
