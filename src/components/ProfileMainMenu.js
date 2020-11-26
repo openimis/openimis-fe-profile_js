@@ -26,4 +26,4 @@ class ProfileMainMenu extends Component {
     );
   }
 }
-export default withModulesManager(injectIntl(ProfileMainMenu));
+export default injectIntl(withModulesManager(ProfileMainMenu));
