@@ -1,4 +1,10 @@
 {
-    "profile.mainMenu": "Profile",
-    "profile.menu.changePassword": "Change Password"
+  "profile.mainMenu": "Profile",
+  "profile.menu.changePassword": "Change Password",
+  "profile.ChangePasswordPage.title": "Change Password",
+  "profile.ChangePasswordPage.notEqualError": "The passwords are not the same",
+  "profile.ChangePasswordPage.oldPasswordLabel": "Current Password",
+  "profile.ChangePasswordPage.newPasswordLabel": "New Password",
+  "profile.ChangePasswordPage.confirmPasswordLabel": "Confirm New Password",
+  "profile.ChangePasswordPage.submitButton": "Submit"
 }
