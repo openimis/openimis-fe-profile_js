@@ -176,7 +176,7 @@ const MyProfilePage = (props) => {
 
             <Grid item xs={4}>
               <TableContainer component={Paper} className={classes.container}>
-                <Table size="small" arial-label="Assigned Roles">
+                <Table stickyHeader size="small" arial-label="Assigned Roles">
                   <TableHead>
                     <TableRow>
                       <TableCell
@@ -204,7 +204,7 @@ const MyProfilePage = (props) => {
             </Grid>
             <Grid item xs={4}>
               <TableContainer component={Paper} className={classes.container}>
-                <Table size="small" arial-label="Assigned Regions">
+                <Table stickyHeader size="small" arial-label="Assigned Regions">
                   <TableHead>
                     <TableRow>
                       <TableCell
