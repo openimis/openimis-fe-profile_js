@@ -6,5 +6,16 @@
   "profile.ChangePasswordPage.oldPasswordLabel": "Current Password",
   "profile.ChangePasswordPage.newPasswordLabel": "New Password",
   "profile.ChangePasswordPage.confirmPasswordLabel": "Confirm New Password",
-  "profile.ChangePasswordPage.submitButton": "Submit"
+  "profile.ChangePasswordPage.submitButton": "Submit",
+  "profile.menu.myProfile": "My Profile",
+  "profile.MyProfilePage.title": "My Profile",
+  "profile.roles": "Assigned Roles",
+  "profile.regions": "Assigned Regions",
+  "profile.districts": "Assigned Districts",
+  "profile.userName": "Username",
+  "profile.otherNames": "Other Names",
+  "profile.lastName": "Last Name",
+  "profile.email": "Email",
+  "profile.phone": "Phone Number",
+  "profile.language": "Interface Language"
 }
