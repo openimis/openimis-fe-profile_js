@@ -48,7 +48,7 @@ const MyProfilePage = (props) => {
 
   let regions = [];
   let districts = [];
-  const locations = user?.iUser?.userdistrictSet || [];
+  const locations = user?.iUser?.userdistrictSet;
 
   if (locations) {
     locations.map((location) => {
