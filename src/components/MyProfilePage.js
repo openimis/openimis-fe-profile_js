@@ -52,9 +52,11 @@ const MyProfilePage = (props) => {
 
   if (locations) {
     locations.map((location) => {
-      districts.push(location?.location?.name);
-      if (!regions.includes(location?.location?.parent?.name)) {
-        regions.push(location?.location?.parent?.name);
+      if (!!location.location.parent && !districts.includes(location.location)) {
+        districts.push(location.location.name);
+      }
+      if (!!location.location.parent && !regions.includes(location.location.parent.name)) {
+        regions.push(location.location.parent.name);
       }
     });
   }
