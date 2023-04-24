@@ -48,12 +48,14 @@ const MyProfilePage = (props) => {
 
   let regions = [];
   let districts = [];
-  const locations = user?.iUser.userdistrictSet;
+  const locations = user?.iUser?.userdistrictSet;
 
   if (locations) {
     locations.map((location) => {
-      districts.push(location.location.name);
-      if (!regions.includes(location.location.parent.name)) {
+      if (!!location.location.parent && !districts.includes(location.location)) {
+        districts.push(location.location.name);
+      }
+      if (!!location.location.parent && !regions.includes(location.location.parent.name)) {
         regions.push(location.location.parent.name);
       }
     });
@@ -166,7 +168,7 @@ const MyProfilePage = (props) => {
                     module="profile"
                     label="language"
                     name="language"
-                    value={user?.iUser.language.name}
+                    value={user?.iUser?.language?.name}
                     variant="outlined"
                     readOnly={true}
                   />
@@ -191,7 +193,7 @@ const MyProfilePage = (props) => {
                   </TableHead>
                   <TableBody>
                     {user &&
-                      user.iUser.roles.map((role) => (
+                      user?.iUser?.roles.map((role) => (
                         <TableRow key={role.name}>
                           <TableCell component="th" scope="row">
                             {role.name}
