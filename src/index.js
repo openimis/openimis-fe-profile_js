@@ -17,8 +17,7 @@ const DEFAULT_CONFIG = {
 };
 
 export const ProfileModule = (cfg) => {
-  let config = { ...DEFAULT_CONFIG, ...cfg };
-  console.log(cfg)
-  cfg?.AppBarMenuContribution===true ? config['core.MainMenu'] = [] : config['core.AppBar'] = []
+  let config = { ...DEFAULT_CONFIG, ...cfg };)
+  cfg?.AppBarMenuContribution === true ? config['core.MainMenu'] = [] : config['core.AppBar'] = []
   return { ...config, ...cfg };
 };
