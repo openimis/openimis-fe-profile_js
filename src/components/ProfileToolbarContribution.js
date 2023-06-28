@@ -106,7 +106,6 @@ const ProfileToolbarContribution = (props) => {
               {entry.withDivider && (
                 <Divider
                   key={`${props.header}_${idx}_divider`}
-                  //className={props.classes.drawerDivider}
                 />
               )}
             </div>
