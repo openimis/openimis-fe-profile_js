@@ -14,6 +14,7 @@ const DEFAULT_CONFIG = {
   "core.MainMenu": [ProfileMainMenu],
   reducers: [{ key: "profile", reducer }],
   "core.AppBar": [ProfileToolbarContribution]
+
 };
 
 export const ProfileModule = (cfg) => {
