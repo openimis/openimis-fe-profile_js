@@ -26,4 +26,5 @@ None
 None
 
 ## Configurations Options
-None
+
+* `AppBarMenuContribution` - if set to true Profile is added as an AppBar icon instead of being main menu contribution

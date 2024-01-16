@@ -1,3 +1,4 @@
+import ProfileToolbarContribution from "./components/ProfileToolbarContribution";
 import ProfileMainMenu from "./components/ProfileMainMenu";
 import ChangePasswordPage from "./components/ChangePasswordPage";
 import messages_en from "./translations/en.json";
@@ -12,8 +13,12 @@ const DEFAULT_CONFIG = {
   ],
   "core.MainMenu": [ProfileMainMenu],
   reducers: [{ key: "profile", reducer }],
+  "core.AppBar": [ProfileToolbarContribution]
+
 };
 
 export const ProfileModule = (cfg) => {
-  return { ...DEFAULT_CONFIG, ...cfg };
+  let config = { ...DEFAULT_CONFIG, ...cfg };
+  cfg?.AppBarMenuContribution === true ? config['core.MainMenu'] = [] : config['core.AppBar'] = []
+  return { ...config, ...cfg };
 };
