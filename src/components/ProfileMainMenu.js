@@ -20,7 +20,6 @@ class ProfileMainMenu extends Component {
 
   render() {
     const { rights, intl, modulesManager } = this.props;
-    console.log(this.isWorker);
     let entries = [
       {
         text: formatMessage(intl, "profile", "menu.myProfile"),
