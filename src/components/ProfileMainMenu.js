@@ -28,13 +28,21 @@ class ProfileMainMenu extends Component {
       },
     ];
 
-    if (!this.isWorker) {
-      entries.push({
-        text: formatMessage(intl, "profile", "menu.changePassword"),
-        icon: <Fingerprint />,
-        route: "/profile/mobile/password",
-      });
-    }
+    this.isWorker
+      ? entries.push({
+          text: formatMessage(intl, "profile", "menu.changePassword"),
+          icon: <Fingerprint />,
+          route: "/profile/mobile/password",
+        })
+      : entries.push({
+          text: formatMessage(
+            this.props.intl,
+            "profile",
+            "menu.changePassword"
+          ),
+          icon: <Fingerprint />,
+          route: "/profile/changePassword",
+        });
 
     entries.push(
       ...modulesManager
