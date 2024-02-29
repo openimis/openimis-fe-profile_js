@@ -15,7 +15,7 @@ const PROFILE_MAIN_MENU_CONTRIBUTION_KEY = "profile.MainMenu";
 class ProfileMainMenu extends Component {
   constructor(props) {
     super(props);
-    this.isWorker = props.modulesManager.getConf("fe-insuree", "isWorker", false);
+    this.isWorker = props.modulesManager.getConf("fe-core", "isWorker", false);
   }
 
   render() {
@@ -28,21 +28,13 @@ class ProfileMainMenu extends Component {
       },
     ];
 
-    this.isWorker
-      ? entries.push({
-          text: formatMessage(intl, "profile", "menu.changePassword"),
-          icon: <Fingerprint />,
-          route: "/profile/mobile/password",
-        })
-      : entries.push({
-          text: formatMessage(
-            this.props.intl,
-            "profile",
-            "menu.changePassword"
-          ),
-          icon: <Fingerprint />,
-          route: "/profile/changePassword",
-        });
+    if (!this.isWorker) {
+      entries.push({
+        text: formatMessage(intl, "profile", "menu.changePassword"),
+        icon: <Fingerprint />,
+        route: "/profile/changePassword",
+      });
+    }
 
     entries.push(
       ...modulesManager
@@ -65,4 +57,6 @@ const mapStateToProps = (state) => ({
   rights: state.core?.user?.i_user?.rights ?? [],
 });
 
-export default injectIntl(withModulesManager(connect(mapStateToProps)(ProfileMainMenu)));
+export default injectIntl(
+  withModulesManager(connect(mapStateToProps)(ProfileMainMenu))
+);
