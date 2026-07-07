@@ -17,5 +17,6 @@
   "profile.lastName": "Last Name",
   "profile.email": "Email",
   "profile.phone": "Phone Number",
-  "profile.language": "Interface Language"
+  "profile.language": "Interface Language",
+  "profile.defaultRowsPerPage": "Default Rows Per Page"
 }

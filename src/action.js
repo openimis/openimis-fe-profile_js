@@ -5,7 +5,7 @@ const ROLE_FULL_PROJECTION = () => [
   "lastName",
   "email",
   "phone",
-  "iUser{language{name},roles{id, name, altLanguage},userdistrictSet{location{name,parent{name}}}}",
+  "iUser{defaultRowsPerPage,language{name},roles{id, name, altLanguage},userdistrictSet{location{name,parent{name}}}}",
 ];
 
 export function fetchRoles(params) {
