@@ -47,7 +47,10 @@ const ChangePasswordPage = (props) => {
       }
     }
   `,
-    { wait: false }
+    // The label is what the journal entry shows. The mutation runs inline and
+    // answers with its own success flag, so fe-core journals it as finished
+    // rather than adding a pending entry it would then poll for ever.
+    { wait: false, clientMutationLabel: formatMessage("mutationLabel") }
   );
 
   const onSubmit = async (e) => {
@@ -59,7 +62,14 @@ const ChangePasswordPage = (props) => {
         newPassword: formValues.password,
       });
 
-      setError(result.changePassword?.error);
+      const failure = result.changePassword?.error;
+      setError(failure);
+      if (!failure) {
+        // Confirmation itself is not this page's job: the mutation is journalled
+        // like any other and the journal raises the notice. Leaving the user on
+        // a form still holding both passwords is, hence the navigation.
+        props.history.push("/");
+      }
     }
   };
 
