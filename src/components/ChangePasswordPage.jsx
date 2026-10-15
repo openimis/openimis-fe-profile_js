@@ -10,7 +10,6 @@ import {
   useModulesManager,
   TextInput,
   useAuthentication,
-  useToast,
   withHistory,
   withModulesManager,
 } from "@openimis/fe-core";
@@ -32,7 +31,6 @@ const ChangePasswordPage = (props) => {
   const { formatMessage } = useTranslations("profile.ChangePasswordPage", modulesManager);
   const [formValues, setFormValues] = useState({});
   const [error, setError] = useState("");
-  const toast = useToast();
 
   const isValid = useMemo(
     () => formValues.password && formValues.password === formValues.confirmPassword && formValues.oldPassword,
@@ -67,9 +65,9 @@ const ChangePasswordPage = (props) => {
       const failure = result.changePassword?.error;
       setError(failure);
       if (!failure) {
-        // Without this the page said nothing at all on success: the error box
-        // simply stayed empty and the form kept the values. Confirm, then leave.
-        toast.showSuccess(formatMessage("success"));
+        // Confirmation itself is not this page's job: the mutation is journalled
+        // like any other and the journal raises the notice. Leaving the user on
+        // a form still holding both passwords is, hence the navigation.
         props.history.push("/");
       }
     }
