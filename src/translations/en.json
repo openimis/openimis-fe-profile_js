@@ -7,6 +7,8 @@
   "profile.ChangePasswordPage.newPasswordLabel": "New Password",
   "profile.ChangePasswordPage.confirmPasswordLabel": "Confirm New Password",
   "profile.ChangePasswordPage.submitButton": "Submit",
+  "profile.ChangePasswordPage.success": "Password changed",
+  "profile.ChangePasswordPage.mutationLabel": "Change password",
   "profile.menu.myProfile": "My Profile",
   "profile.MyProfilePage.title": "My Profile",
   "profile.MyProfilePage.defaultRowsPerPage": "Default Rows Per Page",

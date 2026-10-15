@@ -10,6 +10,7 @@ import {
   useModulesManager,
   TextInput,
   useAuthentication,
+  useToast,
   withHistory,
   withModulesManager,
 } from "@openimis/fe-core";
@@ -31,6 +32,7 @@ const ChangePasswordPage = (props) => {
   const { formatMessage } = useTranslations("profile.ChangePasswordPage", modulesManager);
   const [formValues, setFormValues] = useState({});
   const [error, setError] = useState("");
+  const toast = useToast();
 
   const isValid = useMemo(
     () => formValues.password && formValues.password === formValues.confirmPassword && formValues.oldPassword,
@@ -47,7 +49,10 @@ const ChangePasswordPage = (props) => {
       }
     }
   `,
-    { wait: false }
+    // The label is what the journal entry shows. The mutation runs inline and
+    // answers with its own success flag, so fe-core journals it as finished
+    // rather than adding a pending entry it would then poll for ever.
+    { wait: false, clientMutationLabel: formatMessage("mutationLabel") }
   );
 
   const onSubmit = async (e) => {
@@ -59,7 +64,14 @@ const ChangePasswordPage = (props) => {
         newPassword: formValues.password,
       });
 
-      setError(result.changePassword?.error);
+      const failure = result.changePassword?.error;
+      setError(failure);
+      if (!failure) {
+        // Without this the page said nothing at all on success: the error box
+        // simply stayed empty and the form kept the values. Confirm, then leave.
+        toast.showSuccess(formatMessage("success"));
+        props.history.push("/");
+      }
     }
   };
 
