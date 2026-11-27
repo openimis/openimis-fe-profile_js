@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { injectIntl } from "react-intl";
 import { useDispatch, useSelector, connect } from "react-redux";
 
 import {
@@ -24,20 +23,21 @@ import {
   ControlledField,
   withHistory,
   withModulesManager,
+  injectIntl,
 } from "@openimis/fe-core";
 
 import { fetchRoles } from "../action.js";
 
 const StyledPage = styled('div')(({ theme }) => ({
-  ...theme.page ?? {},
+  ...(theme.page ?? {}),
 }));
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
-  ...theme.paper?.paper ?? {},
+  ...(theme.paper?.paper ?? {}),
 }));
 
 const StyledTitle = styled('div')(({ theme }) => ({
-  ...theme.paper?.title ?? {},
+  ...(theme.paper?.title ?? {}),
 }));
 
 const StyledContainer = styled(TableContainer)(() => ({
@@ -84,7 +84,9 @@ const MyProfilePage = (props) => {
             {formatMessage("title")}
           </Typography>
         </StyledTitle>
-        <Box padding="10px">
+        <Box sx={{
+          padding: "10px"
+        }}>
           <ProgressOrError progress={fetchingUser} error={errorUser} />
           <Grid container spacing={2}>
             <ControlledField
