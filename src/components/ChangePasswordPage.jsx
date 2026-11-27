@@ -1,6 +1,5 @@
 import React, { useState, useMemo } from "react";
 import { connect } from "react-redux";
-import { injectIntl } from "react-intl";
 
 import { Box, Button, Paper, Typography, Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
@@ -12,18 +11,19 @@ import {
   useAuthentication,
   withHistory,
   withModulesManager,
+  injectIntl,
 } from "@openimis/fe-core";
 
 const StyledPage = styled(Box)(({ theme }) => ({
-  ...theme.page ?? {},
+  ...(theme.page ?? {}),
 }));
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
-  ...theme.paper?.paper ?? {},
+  ...(theme.paper?.paper ?? {}),
 }));
 
 const StyledTitle = styled(Typography)(({ theme }) => ({
-  ...theme.paper?.title ?? {},
+  ...(theme.paper?.title ?? {}),
 }));
 
 const ChangePasswordPage = (props) => {
@@ -86,7 +86,9 @@ const ChangePasswordPage = (props) => {
         <StyledTitle variant="h6">
           {formatMessage("title")}
         </StyledTitle>
-        <Box padding="10px">
+        <Box sx={{
+          padding: "10px"
+        }}>
           <form onSubmit={onSubmit}>
             <Grid container spacing={2}>
               <Grid size={4}>
@@ -121,12 +123,16 @@ const ChangePasswordPage = (props) => {
               </Grid>
               {formValues.password !== formValues.confirmPassword && formValues.confirmPassword && formValues.password && (
                 <Grid size={12}>
-                  <Box color="error.main">{formatMessage("notEqualError")}</Box>
+                  <Box sx={{
+                    color: "error.main"
+                  }}>{formatMessage("notEqualError")}</Box>
                 </Grid>
               )}
               {error && (
                 <Grid size={12}>
-                  <Box color="error.main">{error}</Box>
+                  <Box sx={{
+                    color: "error.main"
+                  }}>{error}</Box>
                 </Grid>
               )}
               <Grid>

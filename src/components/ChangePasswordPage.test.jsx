@@ -13,6 +13,7 @@ vi.mock("@openimis/fe-core", async () => {
   const ReactActual = (await import("react")).default;
   const en = (await import("../translations/en.json")).default;
   return {
+    injectIntl: (await import("@openimis/fe-core/testing")).injectIntl,
     useGraphqlMutation: () => ({ isLoading: false, mutate }),
     useTranslations: (prefix) => ({ formatMessage: (key) => en[`${prefix}.${key}`] ?? key }),
     useModulesManager: () => ({}),

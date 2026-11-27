@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { injectIntl } from 'react-intl';
-import { GetIconComponent } from "@openimis/fe-core";
+
+import { GetIconComponent, injectIntl } from "@openimis/fe-core";
 const AccountCircle = GetIconComponent("AccountCircle")
 const  Fingerprint   = GetIconComponent("Fingerprint")
 const  InsertEmoticon   = GetIconComponent("InsertEmoticon")
@@ -17,7 +17,6 @@ import {
   MenuItem,
   Popover
 } from "@mui/material";
-
 
 import { styled } from "@mui/material/styles";
 import { useDispatch } from "react-redux";
